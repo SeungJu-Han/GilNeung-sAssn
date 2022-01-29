@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="25dp"
+        android:layout_height="10dp"
+        android:background="@color/teal_200"
+        android:layout_toRightOf="@id/textView1"/>
+
+    <TextView
+        android:id="@+id/textView2_1"
+        android:layout_width="25dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@id/textView2"
+        android:background="@android:color/holo_orange_light" />
+
+    <TextView
+        android:id="@+id/textView2_2"
+        android:layout_width="25dp"
+        android:layout_height="10dp"
+        android:rotation="90"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/textView1"
+        android:background="@android:color/holo_blue_bright" />
+
+    <TextView
+        android:id="@+id/textView2_3"
+        android:layout_width="10dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/textView1"
+        android:background="@android:color/holo_red_light" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/textView1"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/purple_200" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="25dp"
+        android:layout_height="10dp"
+        android:layout_below="@id/textView3"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/teal_700"
+        android:rotation="90" />
+
+    <TextView
+        android:id="@+id/textView4_1"
+        android:layout_width="25dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="58dp"
+        android:layout_toRightOf="@id/textView3"
+        android:background="@color/teal_700"
+        />
+
+</RelativeLayout>
