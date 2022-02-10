@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GilneungsAssignment2</string>
+    <string name="setting">setting</string>
+    <string name="korea">Korea</string>
+    <string name="japen">Japen</string>
+    <string name="usa">USA</string>
+    <string name="ok">ok</string>
+</resources>

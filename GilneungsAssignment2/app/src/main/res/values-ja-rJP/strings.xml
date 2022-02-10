@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">スキルの課題2</string>
+    <string name="setting">設定</string>
+    <string name="korea">韓国</string>
+    <string name="japen">日本</string>
+    <string name="usa">アメリカ</string>
+    <string name="ok">わかった</string>
+</resources>

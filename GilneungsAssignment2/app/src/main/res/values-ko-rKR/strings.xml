@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">길능의 과제2</string>
+    <string name="setting">설정</string>
+    <string name="korea">한국</string>
+    <string name="japen">일본</string>
+    <string name="usa">미국</string>
+    <string name="ok">확인</string>
+</resources>
