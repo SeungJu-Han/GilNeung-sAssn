@@ -68,10 +68,10 @@ public class SettingActivity extends AppCompatActivity {
         radioButton1.setText(getStringByLocal(this, R.string.korea,locale));
         radioButton2.setText(getStringByLocal(this, R.string.japen,locale));
         radioButton3.setText(getStringByLocal(this, R.string.usa,locale));
-
+        
         final RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
         Button b = (Button)findViewById(R.id.button2);
-
+        //역시 Radio값 초기 설정값이없네요
         locales = new ArrayList<>();
 
         locales.add(getStringByLocal(this, R.string.korea, locale));
@@ -117,13 +117,13 @@ public class SettingActivity extends AppCompatActivity {
                 Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                finish();
-                startActivity(intent);
-            }
-
+                finish(); 
+                startActivity(intent);//MainActivity를 다시 StartActivity할 이유가 없습니다.
+            } // else 조건이면 else를 명시해주세요 다른사람들이 보기 헷갈립니다.
+                //어쩌피 Radio값이 같다면 Activity를 끌 필요가 없지않을까요
                 Intent myIntent = new Intent(SettingActivity.this, MainActivity.class);
                 myIntent.putExtra("countries", countries);
-                startActivity(myIntent);
+                startActivity(myIntent); //MainActivity를 다시 StartActivity할 이유가 없습니다.
             }
         });
     }
