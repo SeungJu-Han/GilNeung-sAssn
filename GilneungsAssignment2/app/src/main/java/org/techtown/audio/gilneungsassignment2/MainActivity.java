@@ -20,20 +20,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //처음화면은 무조건 빈값인가요 고정값일이유가 없지않을까요,SharedPreference에서 값을가져와서 초기값 설정해주세요.
+        //초기값이 무조건 한국어일리가 없어요, SharedPreference를 사용해서 값을가져오면 en으로 설정시에 처음 화면뜰때에도 En이 나와야해요
         textView = findViewById(R.id.textView);
-        textView2 = findViewById(R.id.textView2); //처음화면은 무조건 빈값인가요 고정값일이유가 없지않을까요
+        textView2 = findViewById(R.id.textView2); 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this , SettingActivity.class);
-                startActivity(intent); //StartActivity말고 결과값 받는게 여기서 제일 나을것 같습니다.
+                startActivity(intent); //StartActivity말고 StartActivityForResult가 제일 나을것 같습니다. Deprecated됐다니 변경된거 찾아서 써보셔도 됩니다.
             }
         });
 
         Intent countriesIntent = getIntent();
         countries = countriesIntent.getStringExtra("countries");
-        textView2.setText(countries);  //SettingActivity에서 startActivity해서 onCreate 생명주기가 타는건데
+        textView2.setText(countries);  //SettingActivity에서 startActivity 해서 OnCreate를 타는겁니다 
         
     }
 }
