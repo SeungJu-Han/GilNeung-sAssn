@@ -37,9 +37,9 @@ public class BaseContextWrapper extends AppCompatActivity {
     @NonNull
     public static String getStringByLocal(Activity context, int resId, String locale) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            return getStringByLocalPluse24(context, resId, locale);
+            return getStringByLocalPlus24(context, resId, locale);
         else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            return getStringByLocalPluse17(context, resId, locale);
+            return getStringByLocalPlus17(context, resId, locale);
         else
             return getStringByLocalBefore17(context, resId, locale);
     }
@@ -47,7 +47,7 @@ public class BaseContextWrapper extends AppCompatActivity {
     //누가 버전 이상일경우
     @NonNull
     @TargetApi(Build.VERSION_CODES.N)
-    public static String getStringByLocalPluse24(Activity context, int resId, String locale) {
+    public static String getStringByLocalPlus24(Activity context, int resId, String locale) {
         Configuration configuration = new Configuration(context.getResources().getConfiguration());
         configuration.setLocale(new Locale(locale));
 
@@ -61,7 +61,7 @@ public class BaseContextWrapper extends AppCompatActivity {
     //젤리빈 버전 이상일경우
    @NonNull
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-   public static String getStringByLocalPluse17(Activity context, int resId, String locale) {
+   public static String getStringByLocalPlus17(Activity context, int resId, String locale) {
         Configuration configuration = new Configuration(context.getResources().getConfiguration());
         configuration.setLocale(new Locale(locale));
         return context.createConfigurationContext(configuration).getResources().getString(resId);
