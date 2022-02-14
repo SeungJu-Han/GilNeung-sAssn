@@ -1,19 +1,51 @@
 package org.techtown.audio.gilneungsassignment2;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Locale;
+
+public class MainActivity extends BaseContextWrapper {
     Button button;
     TextView textView;
     TextView textView2;
 
-    String countries;
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onBaseContextWrapperString(Locale.getDefault().toString());
+        SharedPreferences sharedPreferences = this.getSharedPreferences("shared", MODE_PRIVATE);
+        String languageToLoad = sharedPreferences.getString("locale", getResources().getConfiguration().getLocales().get(0).toString());
+
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        this.getResources().updateConfiguration(config, this.getResources().getDisplayMetrics());
+
+        // 현재 기기 언어 설정값 가져오기
+        textView2.setText(Locale.getDefault().toString());
+
+        button.setText(getStringByLocal(this, R.string.setting,languageToLoad));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,19 +53,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.textView);
-        textView2 = findViewById(R.id.textView2); //처음화면은 무조건 빈값인가요 고정값일이유가 없지않을까요
+        textView2 = findViewById(R.id.textView2);
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this , SettingActivity.class);
-                startActivity(intent); //StartActivity말고 결과값 받는게 여기서 제일 나을것 같습니다.
+                startActivity(intent);
             }
         });
-
-        Intent countriesIntent = getIntent();
-        countries = countriesIntent.getStringExtra("countries");
-        textView2.setText(countries);  //SettingActivity에서 startActivity해서 onCreate 생명주기가 타는건데
-        
     }
+
+    public void onBaseContextWrapperString(String s){
+        BaseContextWrapper.onBaseContextWrapper(s);
+
+    }
+
 }
